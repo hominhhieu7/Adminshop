@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mapstoresqlModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_Customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CustomerBirthday" Type="datetime" />
+    <Property Name="CustomerAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="CustomerPhone" Type="bigint" />
+    <Property Name="GroupCustomerID" Type="int" />
+    <Property Name="AccountCustomer" Type="varchar" MaxLength="50" />
+    <Property Name="_Password" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="EmailAdress" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_Discount">
+    <Key>
+      <PropertyRef Name="DiscountId" />
+    </Key>
+    <Property Name="DiscountId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="DiscountCompaignId" Type="int" />
+    <Property Name="TotalmoneyDiscount" Type="float" />
+  </EntityType>
+  <EntityType Name="tbl_DiscountCompaign">
+    <Key>
+      <PropertyRef Name="DiscountCompaignId" />
+    </Key>
+    <Property Name="DiscountCompaignId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompaignName" Type="nvarchar" MaxLength="50" />
+    <Property Name="FromDate" Type="date" />
+    <Property Name="ToDate" Type="date" />
+    <Property Name="DiscountPercent" Type="float" />
+    <Property Name="DiscountMoney" Type="float" />
+    <Property Name="Note" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="date" />
+  </EntityType>
+  <EntityType Name="tbl_Employee">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="EmployeeAddress" Type="varchar" MaxLength="50" />
+    <Property Name="EmployeePhonenumber" Type="bigint" />
+    <Property Name="GroupEmployeeID" Type="int" />
+    <Property Name="AccountEmployee" Type="varchar" MaxLength="50" />
+    <Property Name="_Password" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateBy" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_GroupCustomer">
+    <Key>
+      <PropertyRef Name="GroupCustomerID" />
+    </Key>
+    <Property Name="GroupCustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GroupCustomerName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateBy" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_GroupProduct">
+    <Key>
+      <PropertyRef Name="GroupProductID" />
+    </Key>
+    <Property Name="GroupProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GroupName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateBy" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_GroupUser">
+    <Key>
+      <PropertyRef Name="GroupUserID" />
+    </Key>
+    <Property Name="GroupUserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GroupUserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateBy" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_Manager">
+    <Key>
+      <PropertyRef Name="ManagerID" />
+    </Key>
+    <Property Name="ManagerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ManagerName" Type="nvarchar" MaxLength="50" />
+    <Property Name="AccountManager" Type="varchar" MaxLength="50" />
+    <Property Name="_Password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_Order">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderCode" Type="varchar" MaxLength="50" />
+    <Property Name="OrderName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateBy" Type="int" />
+    <Property Name="TotalProduct" Type="int" />
+    <Property Name="TotalMoney" Type="float" />
+    <Property Name="MoneyDiscount" Type="float" />
+    <Property Name="DiscountMoneyDirectly" Type="float" />
+    <Property Name="CustomerId" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_OrderDetail">
+    <Key>
+      <PropertyRef Name="OrderDetailID" />
+    </Key>
+    <Property Name="OrderDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderID" Type="int" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="Quanlity" Type="int" />
+    <Property Name="PriceProduct" Type="float" />
+    <Property Name="Discount" Type="float" />
+    <Property Name="MoneyDiscount" Type="float" />
+    <Property Name="TotalMoney" Type="float" />
+  </EntityType>
+  <EntityType Name="tbl_Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+    <Property Name="PriceProduct" Type="float" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateBy" Type="int" />
+    <Property Name="GroupProductID" Type="int" />
+    <Property Name="ProductCode" Type="varchar" MaxLength="50" />
+    <Property Name="Quanlity" Type="int" />
+    <Property Name="images" Type="nvarchar" MaxLength="50" />
+    <Property Name="Decriptsion" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_Receipt">
+    <Key>
+      <PropertyRef Name="ReceiptID" />
+    </Key>
+    <Property Name="ReceiptID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreateDay" Type="datetime" />
+    <Property Name="CreateBy" Type="int" />
+    <Property Name="CustomerID" Type="int" />
+  </EntityType>
+  <EntityContainer Name="mapstoresqlModelStoreContainer">
+    <EntitySet Name="tbl_Customer" EntityType="Self.tbl_Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Discount" EntityType="Self.tbl_Discount" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_DiscountCompaign" EntityType="Self.tbl_DiscountCompaign" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Employee" EntityType="Self.tbl_Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_GroupCustomer" EntityType="Self.tbl_GroupCustomer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_GroupProduct" EntityType="Self.tbl_GroupProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_GroupUser" EntityType="Self.tbl_GroupUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Manager" EntityType="Self.tbl_Manager" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Order" EntityType="Self.tbl_Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_OrderDetail" EntityType="Self.tbl_OrderDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Product" EntityType="Self.tbl_Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Receipt" EntityType="Self.tbl_Receipt" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

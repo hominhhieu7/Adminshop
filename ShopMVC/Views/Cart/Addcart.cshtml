@@ -1,0 +1,175 @@
+﻿@using ShopMVC.Data
+@{
+    ViewBag.Title = "Addcart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var data = ViewBag.List as IEnumerable<CartItem>;
+}
+<div class="container">
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered table table-condensed">
+            <thead>
+                <tr class="cot">
+                    <th style="width: 200px">Mã sản phẩm</th>
+                    <th style="width: 200px">Tên sản phẩm</th>
+                    <th style="width: 300px">Giá</th>
+                    <th>Số lượng</th>
+                    <th>Cập nhật</th>
+                    <th>Xóa sản phẩm</th>
+                </tr>
+            </thead>
+            <tbody class="main">
+                @if (data != null)
+            {
+                foreach (var item in data)
+                {
+                        <tr>
+                            <td class="id-sp">@item.Product.ProductID</td>
+                            <td>@item.Product.ProductName</td>
+                            <td class="price">@item.Product.PriceProduct</td>
+                            <td><input type='text' class="soluong" value="@item.Quanlity" /></td>
+                            <td><input value="Sửa" type="submit" id-pro="@item.Product.ProductID" class="btn btn-success btn-update" /></td>
+                            <td><input value="Xóa" type="submit" id-pro="@item.Product.ProductID" class="btn btn-danger btn-remove" /></td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+    <strong>Tổng Tiền: </strong><strong class="totalmoney">@ViewBag.Totalmoney</strong>
+    <div>
+        <div>
+            <table class="table">
+                <tr>
+                    <td>Họ và tên: </td>
+                    <td><input class="form-control hovaten" type="text"/></td>
+                </tr>
+                <tr>
+                    <td>Số điện thoại</td>
+                    <td><input class="form-control sodienthoai" type="text"/></td>
+                </tr>
+                <tr>
+                    <td>Địa chỉ Email: </td>
+                    <td><input class="form-control email" type="text"/></td>
+                </tr>
+                <tr>
+                    <td>Địa Giao Hàng:</td>
+                    <td><input class="form-control diachi" type="text"/></td>
+                </tr>
+            </table>
+            <div>
+                <input id="Dathang" type="submit" class="btn btn-dark btn-dathang" value="Đặt Hàng"/>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        var datasoluong = 0,
+            count = 0;
+        $(".soluong").on("change", function () {
+            datasoluong = $(this).val(); //lay so luong khi input thay doi
+        });
+
+        $(".btn-update").on("click", function (event) { //Khach hang nhan nut sua
+            event.preventDefault();
+            //var idsp = $(".id-sp").text();
+            //var dataid = $("." + idsp).find("td:eq(3)").text();
+            var id = $(this).attr("id-pro");//lay ID san pham de update
+            $.ajax({
+                url: "/Cart/UpdateToCart",
+                type: "POST",
+                data: JSON.stringify({ id: id, quanlity: datasoluong }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function () {
+                    alert("Sua thanh cong");
+                    location.reload();
+                }
+            });
+        });
+        $(".btn-remove").on("click", function (event) {
+            event.preventDefault();
+            var id = $(this).attr("id-pro");
+            $.ajax({
+                url: "/Cart/RemoveFromCart",
+                type: "POST",
+                data: JSON.stringify({ id: id }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function () {
+                    alert("Xoa thanh cong");
+                    location.reload();
+                }
+            });
+        });
+        $(".btn-dathang").on("click", function(event) {
+            event.preventDefault();
+            var tongtien = $(".totalmoney").text(),
+                tenkh = $(".hovaten").val(),
+                sodienthoai = $(".sodienthoai").val(),
+                email = $(".email").val(),
+                diachi = $(".diachi").val(),
+                Orderdetail = "";
+            if (tenkh == "" ) {
+                alert("Vui lòng nhập tên!!!");
+                return;
+            } else if (sodienthoai == "") {
+                alert("Vui lòng nhập số điện thoại!!!");
+                return;
+            }else if (diachi == "") {
+                alert("Vui lòng nhập địa chỉ nhà!!!");
+                return;
+            } else if(email == "") {
+                alert("Vui lòng nhập Email!!!");
+            } else {
+                $(".main").find("tr").each(function () { // Duyệt dòng add vào bảng orderdetail
+                    var _this = $(this);
+
+                    ProductId = _this.find("td:eq(0)").text();
+                    PriceProduct = _this.find("td:eq(2)").text();
+                    soluong = _this.find("td:eq(3) input").val();
+                    Totalmoney = soluong * PriceProduct;
+                    Orderdetail += "<OrderDetail>";
+                    Orderdetail += "<ProductId>" + ProductId + "</ProductId>";
+                    Orderdetail += "<Quanlity>" + soluong + "</Quanlity>";
+                    Orderdetail += "<PriceProduct>" + PriceProduct + "</PriceProduct>";
+                    Orderdetail += "<Discount>0</Discount>";
+                    Orderdetail += "<MoneyDiscount>0</MoneyDiscount>";
+                    Orderdetail += "<TotalMoney>" + Totalmoney + "</TotalMoney>";
+                    Orderdetail += "</OrderDetail>";
+                    count++;
+                });
+                var xml = "";
+                xml += "<Root><Customer>";
+                xml += "<CustomerName>" + tenkh + "</CustomerName>";
+                xml += "<CustomerAddress>" + diachi + "</CustomerAddress>";
+                xml += "<CustomerPhone>" + sodienthoai + "</CustomerPhone>";
+                xml += "<GroupCustomerID>0</GroupCustomerID>";
+                xml += "<AccountCustomer></AccountCustomer>";
+                xml += "<_Password></_Password>";
+                xml += "<CreateDate></CreateDate>";
+                xml += "<EmailAdress>" + email + "</EmailAdress>";
+                xml += "</Customer><Order>";
+                xml += "<TotalProduct>" + count + "</TotalProduct>";
+                xml += "<TotalMoney>" + tongtien + "</TotalMoney>";
+                xml += "<MoneyDiscount>0</MoneyDiscount>";
+                xml += "<DiscountMoneyDirectly>0</DiscountMoneyDirectly>";
+                xml += "</Order>";
+                xml += Orderdetail;
+                xml += "</Root>";
+                $.ajax({
+                    url: "/Cart/Order",
+                    type: "POST",
+                    data: JSON.stringify({ Order: xml }),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function () {
+                        alert("luu ok");
+                    }
+                });
+            }
+            
+
+        });
+    });
+</script>

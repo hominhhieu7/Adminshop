@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BANHANG_THUCTAPModelStoreContainer" CdmEntityContainer="BANHANG_THUCTAPEntities">
+    <EntitySetMapping Name="tbl_Employee">
+      <EntityTypeMapping TypeName="BANHANG_THUCTAPModel.tbl_Employee">
+        <MappingFragment StoreEntitySet="tbl_Employee">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="EmployeeAddress" ColumnName="EmployeeAddress" />
+          <ScalarProperty Name="EmployeePhonenumber" ColumnName="EmployeePhonenumber" />
+          <ScalarProperty Name="GroupEmployeeID" ColumnName="GroupEmployeeID" />
+          <ScalarProperty Name="AccountEmployee" ColumnName="AccountEmployee" />
+          <ScalarProperty Name="C_Password" ColumnName="_Password" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_GroupCustomer">
+      <EntityTypeMapping TypeName="BANHANG_THUCTAPModel.tbl_GroupCustomer">
+        <MappingFragment StoreEntitySet="tbl_GroupCustomer">
+          <ScalarProperty Name="GroupCustomerID" ColumnName="GroupCustomerID" />
+          <ScalarProperty Name="GroupCustomerName" ColumnName="GroupCustomerName" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_GroupProduct">
+      <EntityTypeMapping TypeName="BANHANG_THUCTAPModel.tbl_GroupProduct">
+        <MappingFragment StoreEntitySet="tbl_GroupProduct">
+          <ScalarProperty Name="GroupProductID" ColumnName="GroupProductID" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_GroupUser">
+      <EntityTypeMapping TypeName="BANHANG_THUCTAPModel.tbl_GroupUser">
+        <MappingFragment StoreEntitySet="tbl_GroupUser">
+          <ScalarProperty Name="GroupUserID" ColumnName="GroupUserID" />
+          <ScalarProperty Name="GroupUserName" ColumnName="GroupUserName" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Manager">
+      <EntityTypeMapping TypeName="BANHANG_THUCTAPModel.tbl_Manager">
+        <MappingFragment StoreEntitySet="tbl_Manager">
+          <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
+          <ScalarProperty Name="ManagerName" ColumnName="ManagerName" />
+          <ScalarProperty Name="AccountManager" ColumnName="AccountManager" />
+          <ScalarProperty Name="C_Password" ColumnName="_Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_OrderDetail">
+      <EntityTypeMapping TypeName="BANHANG_THUCTAPModel.tbl_OrderDetail">
+        <MappingFragment StoreEntitySet="tbl_OrderDetail">
+          <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Quanlity" ColumnName="Quanlity" />
+          <ScalarProperty Name="PriceProduct" ColumnName="PriceProduct" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="MoneyDiscount" ColumnName="MoneyDiscount" />
+          <ScalarProperty Name="TotalMoney" ColumnName="TotalMoney" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Receipt">
+      <EntityTypeMapping TypeName="BANHANG_THUCTAPModel.tbl_Receipt">
+        <MappingFragment StoreEntitySet="tbl_Receipt">
+          <ScalarProperty Name="ReceiptID" ColumnName="ReceiptID" />
+          <ScalarProperty Name="CreateDay" ColumnName="CreateDay" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Order">
+      <EntityTypeMapping TypeName="BANHANG_THUCTAPModel.tbl_Order">
+        <MappingFragment StoreEntitySet="tbl_Order">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="DiscountMoneyDirectly" ColumnName="DiscountMoneyDirectly" />
+          <ScalarProperty Name="MoneyDiscount" ColumnName="MoneyDiscount" />
+          <ScalarProperty Name="TotalMoney" ColumnName="TotalMoney" />
+          <ScalarProperty Name="TotalProduct" ColumnName="TotalProduct" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="OrderName" ColumnName="OrderName" />
+          <ScalarProperty Name="OrderCode" ColumnName="OrderCode" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Product">
+      <EntityTypeMapping TypeName="BANHANG_THUCTAPModel.tbl_Product">
+        <MappingFragment StoreEntitySet="tbl_Product">
+          <ScalarProperty Name="Decriptsion" ColumnName="Decriptsion" />
+          <ScalarProperty Name="images" ColumnName="images" />
+          <ScalarProperty Name="Quanlity" ColumnName="Quanlity" />
+          <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+          <ScalarProperty Name="GroupProductID" ColumnName="GroupProductID" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="PriceProduct" ColumnName="PriceProduct" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Customer">
+      <EntityTypeMapping TypeName="BANHANG_THUCTAPModel.tbl_Customer">
+        <MappingFragment StoreEntitySet="tbl_Customer">
+          <ScalarProperty Name="EmailAdress" ColumnName="EmailAdress" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="C_Password" ColumnName="_Password" />
+          <ScalarProperty Name="AccountCustomer" ColumnName="AccountCustomer" />
+          <ScalarProperty Name="GroupCustomerID" ColumnName="GroupCustomerID" />
+          <ScalarProperty Name="CustomerPhone" ColumnName="CustomerPhone" />
+          <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+          <ScalarProperty Name="CustomerBirthday" ColumnName="CustomerBirthday" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Discount">
+      <EntityTypeMapping TypeName="BANHANG_THUCTAPModel.tbl_Discount">
+        <MappingFragment StoreEntitySet="tbl_Discount">
+          <ScalarProperty Name="TotalmoneyDiscount" ColumnName="TotalmoneyDiscount" />
+          <ScalarProperty Name="DiscountCompaignId" ColumnName="DiscountCompaignId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="DiscountId" ColumnName="DiscountId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_DiscountCompaign">
+      <EntityTypeMapping TypeName="BANHANG_THUCTAPModel.tbl_DiscountCompaign">
+        <MappingFragment StoreEntitySet="tbl_DiscountCompaign">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="DiscountMoney" ColumnName="DiscountMoney" />
+          <ScalarProperty Name="DiscountPercent" ColumnName="DiscountPercent" />
+          <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+          <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+          <ScalarProperty Name="CompaignName" ColumnName="CompaignName" />
+          <ScalarProperty Name="DiscountCompaignId" ColumnName="DiscountCompaignId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

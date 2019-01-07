@@ -1,0 +1,132 @@
+﻿@using ShopMVC.Data.Entity
+
+@{
+    ViewBag.Title = "Index_Discount";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var datacompaign = ViewBag.Listall as IEnumerable<tbl_DiscountCompaign>;
+    var dataproduct = ViewBag.Listallproduct as IEnumerable<tbl_Product>;
+}
+
+<h3>Discount</h3>
+
+<div class="row">
+    <div class="col-md-5">
+        <div class="white-box">
+            <h3 class="box-title">Compaign Discount</h3>
+            <form class="form-horizontal form-material">
+                <div class="form-group">
+                    <label class="col-md-12">Compaign Name</label>
+                    <div class="col-md-12">
+                        <input type="text" placeholder="Compaign Name" class="form-control form-control-line compaignname">
+                    </div>
+                </div>
+            </form>
+            <form class="form-horizontal form-material">
+                <div class="form-group">
+                    <label class="col-md-12">From Date</label>
+                    <div class="col-md-12">
+                        <input type="date" class="form-control form-control-line fromdate">
+                    </div>
+                </div>
+            </form>
+            <form class="form-horizontal form-material">
+                <div class="form-group">
+                    <label class="col-md-12">To Date</label>
+                    <div class="col-md-12">
+                        <input type="date" class="form-control form-control-line todate">
+                    </div>
+                </div>
+            </form>
+            <form class="form-horizontal form-material">
+                <div class="form-group">
+                    <label class="col-md-12">Discount Percent</label>
+                    <div class="col-md-12">
+                        <input type="text" placeholder="Discount Percent" class="form-control form-control-line discountpercent">
+                    </div>
+                </div>
+            </form>
+            <form class="form-horizontal form-material">
+                <div class="form-group">
+                    <label class="col-md-12">Discount Money</label>
+                    <div class="col-md-12">
+                        <input type="text" placeholder="Discount Money" class="form-control form-control-line discountmoney">
+                    </div>
+                </div>
+            </form>
+            <form class="form-horizontal form-material">
+                <div class="form-group">
+                    <label class="col-md-12">Note</label>
+                    <div class="col-md-12">
+                        <textarea rows="5" class="form-control form-control-line note"></textarea>
+                    </div>
+                </div>
+            </form>
+            <form class="form-horizontal form-material">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <input type="button" id="btnSaveCompaign" class="btn btn-success" value="Save" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <div class="white-box">
+            <h3 class="box-title">Compaign</h3>
+            <div class="form-group">
+                <label class="col-sm-6">Chose Compaign Discount</label>
+                <select class="form-control form-control-line compaigndiscount">
+                    <option value="0">Chose Compaign</option>
+                    @foreach (var item in datacompaign)
+                    {
+                        <option value="@item.DiscountCompaignId">@item.CompaignName</option>
+                    }
+                </select>
+            </div><div class="form-group">
+                <label class="col-sm-6">Chose Product Discount</label>
+                <select class="form-control form-control-line productdiscount">
+                    <option value="0">Chose Product</option>
+                    @foreach (var item in dataproduct)
+                    {
+                        <option value="@item.ProductID">@item.ProductName</option>
+                    }
+                </select>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#btnSaveCompaign").on("click", function (event) {
+            event.preventDefault();
+            var compaignname = $(".compaignname").val(),
+fromdate = $(".fromdate").val(),
+todate = $(".todate").val(),
+discountpercent = $(".discountpercent").val(),
+discountmoney = $(".discountmoney").val(),
+note = $(".note").val();
+            var obj = new Object();
+            obj.CompaignName = compaignname;
+            obj.FromDate = fromdate;
+            obj.ToDate = todate;
+            obj.DiscountPercent = discountpercent;
+            obj.DiscountMoney = discountmoney;
+            obj.Note = note;
+            $.ajax({
+                url: "/Discount_Manage/Add",
+                type: "POST",
+                data: JSON.stringify(obj),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function () {
+                    alert("Đã thêm chiến dịch");
+                    location.reload();
+                }
+            });
+        });
+    });
+</script>

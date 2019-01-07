@@ -1,0 +1,498 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BANHANG_THUCTAPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustomerBirthday" Type="datetime" />
+          <Property Name="CustomerAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustomerPhone" Type="bigint" />
+          <Property Name="GroupCustomerID" Type="int" />
+          <Property Name="AccountCustomer" Type="varchar" MaxLength="50" />
+          <Property Name="_Password" Type="varchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="EmailAdress" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_Discount">
+          <Key>
+            <PropertyRef Name="DiscountId" />
+          </Key>
+          <Property Name="DiscountId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="DiscountCompaignId" Type="int" />
+          <Property Name="TotalmoneyDiscount" Type="float" />
+        </EntityType>
+        <EntityType Name="tbl_DiscountCompaign">
+          <Key>
+            <PropertyRef Name="DiscountCompaignId" />
+          </Key>
+          <Property Name="DiscountCompaignId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompaignName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FromDate" Type="date" />
+          <Property Name="ToDate" Type="date" />
+          <Property Name="DiscountPercent" Type="float" />
+          <Property Name="DiscountMoney" Type="float" />
+          <Property Name="Note" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="date" />
+        </EntityType>
+        <EntityType Name="tbl_Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmployeeAddress" Type="varchar" MaxLength="50" />
+          <Property Name="EmployeePhonenumber" Type="bigint" />
+          <Property Name="GroupEmployeeID" Type="int" />
+          <Property Name="AccountEmployee" Type="varchar" MaxLength="50" />
+          <Property Name="_Password" Type="varchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="CreateBy" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_GroupCustomer">
+          <Key>
+            <PropertyRef Name="GroupCustomerID" />
+          </Key>
+          <Property Name="GroupCustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupCustomerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="CreateBy" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_GroupProduct">
+          <Key>
+            <PropertyRef Name="GroupProductID" />
+          </Key>
+          <Property Name="GroupProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="CreateBy" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_GroupUser">
+          <Key>
+            <PropertyRef Name="GroupUserID" />
+          </Key>
+          <Property Name="GroupUserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupUserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="CreateBy" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Manager">
+          <Key>
+            <PropertyRef Name="ManagerID" />
+          </Key>
+          <Property Name="ManagerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ManagerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountManager" Type="varchar" MaxLength="50" />
+          <Property Name="_Password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_Order">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderCode" Type="varchar" MaxLength="50" />
+          <Property Name="OrderName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="CreateBy" Type="int" />
+          <Property Name="TotalProduct" Type="int" />
+          <Property Name="TotalMoney" Type="float" />
+          <Property Name="MoneyDiscount" Type="float" />
+          <Property Name="DiscountMoneyDirectly" Type="float" />
+          <Property Name="CustomerId" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_OrderDetail">
+          <Key>
+            <PropertyRef Name="OrderDetailID" />
+          </Key>
+          <Property Name="OrderDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderID" Type="int" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="Quanlity" Type="int" />
+          <Property Name="PriceProduct" Type="float" />
+          <Property Name="Discount" Type="float" />
+          <Property Name="MoneyDiscount" Type="float" />
+          <Property Name="TotalMoney" Type="float" />
+        </EntityType>
+        <EntityType Name="tbl_Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PriceProduct" Type="float" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="CreateBy" Type="int" />
+          <Property Name="GroupProductID" Type="int" />
+          <Property Name="ProductCode" Type="varchar" MaxLength="50" />
+          <Property Name="Quanlity" Type="int" />
+          <Property Name="images" Type="nvarchar" MaxLength="50" />
+          <Property Name="Decriptsion" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_Receipt">
+          <Key>
+            <PropertyRef Name="ReceiptID" />
+          </Key>
+          <Property Name="ReceiptID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreateDay" Type="datetime" />
+          <Property Name="CreateBy" Type="int" />
+          <Property Name="CustomerID" Type="int" />
+        </EntityType>
+        <EntityContainer Name="BANHANG_THUCTAPModelStoreContainer">
+          <EntitySet Name="tbl_Customer" EntityType="Self.tbl_Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Discount" EntityType="Self.tbl_Discount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_DiscountCompaign" EntityType="Self.tbl_DiscountCompaign" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Employee" EntityType="Self.tbl_Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_GroupCustomer" EntityType="Self.tbl_GroupCustomer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_GroupProduct" EntityType="Self.tbl_GroupProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_GroupUser" EntityType="Self.tbl_GroupUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Manager" EntityType="Self.tbl_Manager" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Order" EntityType="Self.tbl_Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_OrderDetail" EntityType="Self.tbl_OrderDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Product" EntityType="Self.tbl_Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Receipt" EntityType="Self.tbl_Receipt" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BANHANG_THUCTAPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeePhonenumber" Type="Int64" />
+          <Property Name="GroupEmployeeID" Type="Int32" />
+          <Property Name="AccountEmployee" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="C_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_GroupCustomer">
+          <Key>
+            <PropertyRef Name="GroupCustomerID" />
+          </Key>
+          <Property Name="GroupCustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupCustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_GroupProduct">
+          <Key>
+            <PropertyRef Name="GroupProductID" />
+          </Key>
+          <Property Name="GroupProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_GroupUser">
+          <Key>
+            <PropertyRef Name="GroupUserID" />
+          </Key>
+          <Property Name="GroupUserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_Manager">
+          <Key>
+            <PropertyRef Name="ManagerID" />
+          </Key>
+          <Property Name="ManagerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ManagerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AccountManager" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="C_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_OrderDetail">
+          <Key>
+            <PropertyRef Name="OrderDetailID" />
+          </Key>
+          <Property Name="OrderDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int32" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="Quanlity" Type="Int32" />
+          <Property Name="PriceProduct" Type="Double" />
+          <Property Name="Discount" Type="Double" />
+          <Property Name="MoneyDiscount" Type="Double" />
+          <Property Name="TotalMoney" Type="Double" />
+        </EntityType>
+        <EntityType Name="tbl_Receipt">
+          <Key>
+            <PropertyRef Name="ReceiptID" />
+          </Key>
+          <Property Name="ReceiptID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateDay" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="Int32" />
+          <Property Name="CustomerID" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="BANHANG_THUCTAPEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_Employee" EntityType="Self.tbl_Employee" />
+          <EntitySet Name="tbl_GroupCustomer" EntityType="Self.tbl_GroupCustomer" />
+          <EntitySet Name="tbl_GroupProduct" EntityType="Self.tbl_GroupProduct" />
+          <EntitySet Name="tbl_GroupUser" EntityType="Self.tbl_GroupUser" />
+          <EntitySet Name="tbl_Manager" EntityType="Self.tbl_Manager" />
+          <EntitySet Name="tbl_OrderDetail" EntityType="Self.tbl_OrderDetail" />
+          <EntitySet Name="tbl_Receipt" EntityType="Self.tbl_Receipt" />
+          <EntitySet Name="tbl_Order" EntityType="BANHANG_THUCTAPModel.tbl_Order" />
+          <EntitySet Name="tbl_Product" EntityType="BANHANG_THUCTAPModel.tbl_Product" />
+          <EntitySet Name="tbl_Customer" EntityType="BANHANG_THUCTAPModel.tbl_Customer" />
+          <EntitySet Name="tbl_Discount" EntityType="BANHANG_THUCTAPModel.tbl_Discount" />
+          <EntitySet Name="tbl_DiscountCompaign" EntityType="BANHANG_THUCTAPModel.tbl_DiscountCompaign" />
+        </EntityContainer>
+        <EntityType Name="tbl_Order">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrderName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="Int32" />
+          <Property Name="TotalProduct" Type="Int32" />
+          <Property Name="TotalMoney" Type="Double" />
+          <Property Name="MoneyDiscount" Type="Double" />
+          <Property Name="DiscountMoneyDirectly" Type="Double" />
+          <Property Name="CustomerId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PriceProduct" Type="Double" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="Int32" />
+          <Property Name="GroupProductID" Type="Int32" />
+          <Property Name="ProductCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Quanlity" Type="Int32" />
+          <Property Name="images" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Decriptsion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerBirthday" Type="DateTime" Precision="3" />
+          <Property Name="CustomerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerPhone" Type="Int64" />
+          <Property Name="GroupCustomerID" Type="Int32" />
+          <Property Name="AccountCustomer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="C_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="EmailAdress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_Discount">
+          <Key>
+            <PropertyRef Name="DiscountId" />
+          </Key>
+          <Property Name="DiscountId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="DiscountCompaignId" Type="Int32" />
+          <Property Name="TotalmoneyDiscount" Type="Double" />
+        </EntityType>
+        <EntityType Name="tbl_DiscountCompaign">
+          <Key>
+            <PropertyRef Name="DiscountCompaignId" />
+          </Key>
+          <Property Name="DiscountCompaignId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompaignName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FromDate" Type="DateTime" Precision="0" />
+          <Property Name="ToDate" Type="DateTime" Precision="0" />
+          <Property Name="DiscountPercent" Type="Double" />
+          <Property Name="DiscountMoney" Type="Double" />
+          <Property Name="Note" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="0" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BANHANG_THUCTAPModelStoreContainer" CdmEntityContainer="BANHANG_THUCTAPEntities">
+          <EntitySetMapping Name="tbl_Employee">
+            <EntityTypeMapping TypeName="BANHANG_THUCTAPModel.tbl_Employee">
+              <MappingFragment StoreEntitySet="tbl_Employee">
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="EmployeeAddress" ColumnName="EmployeeAddress" />
+                <ScalarProperty Name="EmployeePhonenumber" ColumnName="EmployeePhonenumber" />
+                <ScalarProperty Name="GroupEmployeeID" ColumnName="GroupEmployeeID" />
+                <ScalarProperty Name="AccountEmployee" ColumnName="AccountEmployee" />
+                <ScalarProperty Name="C_Password" ColumnName="_Password" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_GroupCustomer">
+            <EntityTypeMapping TypeName="BANHANG_THUCTAPModel.tbl_GroupCustomer">
+              <MappingFragment StoreEntitySet="tbl_GroupCustomer">
+                <ScalarProperty Name="GroupCustomerID" ColumnName="GroupCustomerID" />
+                <ScalarProperty Name="GroupCustomerName" ColumnName="GroupCustomerName" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_GroupProduct">
+            <EntityTypeMapping TypeName="BANHANG_THUCTAPModel.tbl_GroupProduct">
+              <MappingFragment StoreEntitySet="tbl_GroupProduct">
+                <ScalarProperty Name="GroupProductID" ColumnName="GroupProductID" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_GroupUser">
+            <EntityTypeMapping TypeName="BANHANG_THUCTAPModel.tbl_GroupUser">
+              <MappingFragment StoreEntitySet="tbl_GroupUser">
+                <ScalarProperty Name="GroupUserID" ColumnName="GroupUserID" />
+                <ScalarProperty Name="GroupUserName" ColumnName="GroupUserName" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Manager">
+            <EntityTypeMapping TypeName="BANHANG_THUCTAPModel.tbl_Manager">
+              <MappingFragment StoreEntitySet="tbl_Manager">
+                <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
+                <ScalarProperty Name="ManagerName" ColumnName="ManagerName" />
+                <ScalarProperty Name="AccountManager" ColumnName="AccountManager" />
+                <ScalarProperty Name="C_Password" ColumnName="_Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_OrderDetail">
+            <EntityTypeMapping TypeName="BANHANG_THUCTAPModel.tbl_OrderDetail">
+              <MappingFragment StoreEntitySet="tbl_OrderDetail">
+                <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="Quanlity" ColumnName="Quanlity" />
+                <ScalarProperty Name="PriceProduct" ColumnName="PriceProduct" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="MoneyDiscount" ColumnName="MoneyDiscount" />
+                <ScalarProperty Name="TotalMoney" ColumnName="TotalMoney" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Receipt">
+            <EntityTypeMapping TypeName="BANHANG_THUCTAPModel.tbl_Receipt">
+              <MappingFragment StoreEntitySet="tbl_Receipt">
+                <ScalarProperty Name="ReceiptID" ColumnName="ReceiptID" />
+                <ScalarProperty Name="CreateDay" ColumnName="CreateDay" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Order">
+            <EntityTypeMapping TypeName="BANHANG_THUCTAPModel.tbl_Order">
+              <MappingFragment StoreEntitySet="tbl_Order">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="DiscountMoneyDirectly" ColumnName="DiscountMoneyDirectly" />
+                <ScalarProperty Name="MoneyDiscount" ColumnName="MoneyDiscount" />
+                <ScalarProperty Name="TotalMoney" ColumnName="TotalMoney" />
+                <ScalarProperty Name="TotalProduct" ColumnName="TotalProduct" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="OrderName" ColumnName="OrderName" />
+                <ScalarProperty Name="OrderCode" ColumnName="OrderCode" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Product">
+            <EntityTypeMapping TypeName="BANHANG_THUCTAPModel.tbl_Product">
+              <MappingFragment StoreEntitySet="tbl_Product">
+                <ScalarProperty Name="Decriptsion" ColumnName="Decriptsion" />
+                <ScalarProperty Name="images" ColumnName="images" />
+                <ScalarProperty Name="Quanlity" ColumnName="Quanlity" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="GroupProductID" ColumnName="GroupProductID" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="PriceProduct" ColumnName="PriceProduct" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Customer">
+            <EntityTypeMapping TypeName="BANHANG_THUCTAPModel.tbl_Customer">
+              <MappingFragment StoreEntitySet="tbl_Customer">
+                <ScalarProperty Name="EmailAdress" ColumnName="EmailAdress" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="C_Password" ColumnName="_Password" />
+                <ScalarProperty Name="AccountCustomer" ColumnName="AccountCustomer" />
+                <ScalarProperty Name="GroupCustomerID" ColumnName="GroupCustomerID" />
+                <ScalarProperty Name="CustomerPhone" ColumnName="CustomerPhone" />
+                <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+                <ScalarProperty Name="CustomerBirthday" ColumnName="CustomerBirthday" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Discount">
+            <EntityTypeMapping TypeName="BANHANG_THUCTAPModel.tbl_Discount">
+              <MappingFragment StoreEntitySet="tbl_Discount">
+                <ScalarProperty Name="TotalmoneyDiscount" ColumnName="TotalmoneyDiscount" />
+                <ScalarProperty Name="DiscountCompaignId" ColumnName="DiscountCompaignId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="DiscountId" ColumnName="DiscountId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_DiscountCompaign">
+            <EntityTypeMapping TypeName="BANHANG_THUCTAPModel.tbl_DiscountCompaign">
+              <MappingFragment StoreEntitySet="tbl_DiscountCompaign">
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="DiscountMoney" ColumnName="DiscountMoney" />
+                <ScalarProperty Name="DiscountPercent" ColumnName="DiscountPercent" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="CompaignName" ColumnName="CompaignName" />
+                <ScalarProperty Name="DiscountCompaignId" ColumnName="DiscountCompaignId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,5 @@
+F:\ShopMVC\ShopMVC.Framework\bin\Debug\ShopMVC.Framework.dll
+F:\ShopMVC\ShopMVC.Framework\bin\Debug\ShopMVC.Framework.pdb
+F:\ShopMVC\ShopMVC.Framework\obj\Debug\ShopMVC.Framework.csprojResolveAssemblyReference.cache
+F:\ShopMVC\ShopMVC.Framework\obj\Debug\ShopMVC.Framework.dll
+F:\ShopMVC\ShopMVC.Framework\obj\Debug\ShopMVC.Framework.pdb

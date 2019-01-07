@@ -1,0 +1,1004 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1B2967B7-67C6-4469-AEC8-F77F81D31D73}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ShopMVC</RootNamespace>
+    <AssemblyName>ShopMVC</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=4.0.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.0.1\lib\net45\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Mvc5.4.0.2\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.3.0\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.3.0\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\Discount_ManageController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\Product_ManageController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\CssAdmin\html\bootstrap\dist\css\bootstrap-theme.css" />
+    <Content Include="Content\CssAdmin\html\bootstrap\dist\css\bootstrap-theme.min.css" />
+    <Content Include="Content\CssAdmin\html\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="Content\CssAdmin\html\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="Content\CssAdmin\html\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\CssAdmin\html\bootstrap\dist\js\bootstrap.js" />
+    <Content Include="Content\CssAdmin\html\bootstrap\dist\js\bootstrap.min.js" />
+    <Content Include="Content\CssAdmin\html\bootstrap\dist\js\npm.js" />
+    <Content Include="Content\CssAdmin\html\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\CssAdmin\html\bootstrap\Gruntfile.js" />
+    <Content Include="Content\CssAdmin\html\bootstrap\grunt\bs-commonjs-generator.js" />
+    <Content Include="Content\CssAdmin\html\bootstrap\grunt\bs-glyphicons-data-generator.js" />
+    <Content Include="Content\CssAdmin\html\bootstrap\grunt\bs-lessdoc-parser.js" />
+    <Content Include="Content\CssAdmin\html\bootstrap\grunt\bs-raw-files-generator.js" />
+    <Content Include="Content\CssAdmin\html\bootstrap\js\affix.js" />
+    <Content Include="Content\CssAdmin\html\bootstrap\js\alert.js" />
+    <Content Include="Content\CssAdmin\html\bootstrap\js\button.js" />
+    <Content Include="Content\CssAdmin\html\bootstrap\js\carousel.js" />
+    <Content Include="Content\CssAdmin\html\bootstrap\js\collapse.js" />
+    <Content Include="Content\CssAdmin\html\bootstrap\js\dropdown.js" />
+    <Content Include="Content\CssAdmin\html\bootstrap\js\modal.js" />
+    <Content Include="Content\CssAdmin\html\bootstrap\js\popover.js" />
+    <Content Include="Content\CssAdmin\html\bootstrap\js\scrollspy.js" />
+    <Content Include="Content\CssAdmin\html\bootstrap\js\tab.js" />
+    <Content Include="Content\CssAdmin\html\bootstrap\js\tooltip.js" />
+    <Content Include="Content\CssAdmin\html\bootstrap\js\transition.js" />
+    <Content Include="Content\CssAdmin\html\css\animate.css" />
+    <Content Include="Content\CssAdmin\html\css\colors\default.css" />
+    <Content Include="Content\CssAdmin\html\css\icons\linea-icons\linea.css" />
+    <Content Include="Content\CssAdmin\html\css\icons\material-design-iconic-font\css\material-design-iconic-font.css" />
+    <Content Include="Content\CssAdmin\html\css\icons\material-design-iconic-font\css\material-design-iconic-font.min.css" />
+    <Content Include="Content\CssAdmin\html\css\icons\material-design-iconic-font\css\materialdesignicons.min.css" />
+    <Content Include="Content\CssAdmin\html\css\icons\material-design-iconic-font\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="Content\CssAdmin\html\css\icons\material-design-iconic-font\fonts\materialdesignicons-webfont.svg" />
+    <Content Include="Content\CssAdmin\html\css\spinners.css" />
+    <Content Include="Content\CssAdmin\html\css\style.css" />
+    <Content Include="Content\CssAdmin\html\js\custom.js" />
+    <Content Include="Content\CssAdmin\html\js\custom.min.js" />
+    <Content Include="Content\CssAdmin\html\js\dashboard1.js" />
+    <Content Include="Content\CssAdmin\html\js\jquery.slimscroll.js" />
+    <Content Include="Content\CssAdmin\html\js\morris-data.js" />
+    <Content Include="Content\CssAdmin\html\js\toastr.js" />
+    <Content Include="Content\CssAdmin\html\js\waves.js" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\HELP-US-OUT.txt" />
+    <Content Include="Content\CssAdmin\html\less\spinners.css" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-js\dist\chartist-init.css" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-js\dist\chartist-init.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-js\dist\chartist.css" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-js\dist\chartist.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-js\dist\chartist.min.css" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-js\dist\chartist.min.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-plugin-tooltip-master\dist\chartist-plugin-tooltip.css" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-plugin-tooltip-master\dist\chartist-plugin-tooltip.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-plugin-tooltip-master\dist\chartist-plugin-tooltip.min.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-plugin-tooltip-master\Gruntfile.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-plugin-tooltip-master\src\css\chartist-plugin-tooltip.css" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-plugin-tooltip-master\src\scripts\chartist-plugin-tooltip.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-plugin-tooltip-master\tasks\clean.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-plugin-tooltip-master\tasks\copy.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-plugin-tooltip-master\tasks\jasmine.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-plugin-tooltip-master\tasks\jshint.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-plugin-tooltip-master\tasks\sass.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-plugin-tooltip-master\tasks\uglify.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-plugin-tooltip-master\tasks\umd.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-plugin-tooltip-master\test\runner.html" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-plugin-tooltip-master\test\spec\spec-tooltip.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\counterup\jquery.counterup.min.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\gmaps\gmaps.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\gmaps\gmaps.min.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\gmaps\jquery.gmaps.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\gmaps\lib\gmaps.controls.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\gmaps\lib\gmaps.core.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\gmaps\lib\gmaps.events.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\gmaps\lib\gmaps.geofences.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\gmaps\lib\gmaps.geometry.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\gmaps\lib\gmaps.layers.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\gmaps\lib\gmaps.map_types.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\gmaps\lib\gmaps.markers.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\gmaps\lib\gmaps.native_extensions.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\gmaps\lib\gmaps.overlays.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\gmaps\lib\gmaps.routes.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\gmaps\lib\gmaps.static.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\gmaps\lib\gmaps.streetview.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\gmaps\lib\gmaps.styles.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\gmaps\lib\gmaps.utils.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery-sparkline\jquery.charts-sparkline.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery-sparkline\jquery.sparkline.min.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\dist\jquery.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\dist\jquery.min.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\ajax.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\ajax\jsonp.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\ajax\load.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\ajax\parseJSON.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\ajax\parseXML.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\ajax\script.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\ajax\var\nonce.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\ajax\var\rquery.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\ajax\xhr.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\attributes.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\attributes\attr.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\attributes\classes.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\attributes\prop.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\attributes\support.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\attributes\val.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\callbacks.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\core.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\core\access.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\core\init.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\core\parseHTML.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\core\ready.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\core\var\rsingleTag.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\css.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\css\addGetHookIf.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\css\curCSS.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\css\defaultDisplay.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\css\hiddenVisibleSelectors.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\css\support.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\css\swap.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\css\var\cssExpand.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\css\var\getStyles.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\css\var\isHidden.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\css\var\rmargin.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\css\var\rnumnonpx.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\data.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\data\accepts.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\data\Data.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\data\var\data_priv.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\data\var\data_user.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\deferred.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\deprecated.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\dimensions.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\effects.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\effects\animatedSelector.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\effects\Tween.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\event.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\event\ajax.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\event\alias.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\event\support.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\exports\amd.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\exports\global.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\intro.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\jquery.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\manipulation.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\manipulation\support.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\manipulation\var\rcheckableType.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\manipulation\_evalUrl.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\offset.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\outro.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\queue.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\queue\delay.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\selector-native.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\selector-sizzle.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\selector.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\serialize.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\sizzle\dist\sizzle.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\sizzle\dist\sizzle.min.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\traversing.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\traversing\findFilter.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\traversing\var\rneedsContext.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\var\arr.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\var\class2type.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\var\concat.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\var\hasOwn.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\var\indexOf.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\var\pnum.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\var\push.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\var\rnotwhite.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\var\slice.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\var\strundefined.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\var\support.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\var\toString.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\wrap.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\examples\area-as-line.html" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\examples\area.html" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\examples\bar-colors.html" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\examples\bar-no-axes.html" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\examples\bar.html" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\examples\days.html" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\examples\decimal-custom-hover.html" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\examples\diagonal-xlabels-bar.html" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\examples\diagonal-xlabels.html" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\examples\donut-colors.html" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\examples\donut-formatter.html" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\examples\donut.html" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\examples\dst.html" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\examples\events.html" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\examples\goals.html" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\examples\lib\example.css" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\examples\lib\example.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\examples\months-no-smooth.html" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\examples\negative.html" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\examples\no-grid.html" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\examples\non-continuous.html" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\examples\non-date.html" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\examples\quarters.html" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\examples\resize.html" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\examples\stacked_bars.html" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\examples\timestamps.html" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\examples\updating.html" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\examples\weeks.html" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\examples\years.html" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\examples\_template.html" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\Gruntfile.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\morris.css" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\morris.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\morris.min.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\spec\specs.html" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\spec\viz\examples.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\spec\viz\exemplary\area0.png" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\spec\viz\exemplary\bar0.png" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\spec\viz\exemplary\line0.png" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\spec\viz\exemplary\stacked_bar0.png" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\spec\viz\test.html" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\spec\viz\visual_specs.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\sidebar-nav\dist\sidebar-nav.css" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\sidebar-nav\dist\sidebar-nav.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\sidebar-nav\dist\sidebar-nav.min.css" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\sidebar-nav\dist\sidebar-nav.min.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\sidebar-nav\Gruntfile.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\sidebar-nav\src\metisMenu.css" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\sidebar-nav\src\metisMenu.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\toast-master\css\jquery.toast.css" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\toast-master\js\jquery.toast.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\waypoints\lib\jquery.waypoints.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\waypoints\lib\jquery.waypoints.min.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\waypoints\lib\noframework.waypoints.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\waypoints\lib\noframework.waypoints.min.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\waypoints\lib\shortcuts\infinite.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\waypoints\lib\shortcuts\infinite.min.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\waypoints\lib\shortcuts\inview.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\waypoints\lib\shortcuts\inview.min.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\waypoints\lib\shortcuts\sticky.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\waypoints\lib\shortcuts\sticky.min.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\waypoints\lib\waypoints.debug.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\waypoints\lib\zepto.waypoints.js" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\waypoints\lib\zepto.waypoints.min.js" />
+    <Content Include="Content\CssAdmin\plugins\images\admin-logo-dark.png" />
+    <Content Include="Content\CssAdmin\plugins\images\admin-logo.png" />
+    <Content Include="Content\CssAdmin\plugins\images\admin-text-dark.png" />
+    <Content Include="Content\CssAdmin\plugins\images\admin-text.png" />
+    <Content Include="Content\CssAdmin\plugins\images\favicon.png" />
+    <Content Include="Content\CssAdmin\plugins\images\large\img1.jpg" />
+    <Content Include="Content\CssAdmin\plugins\images\users\arijit.jpg" />
+    <Content Include="Content\CssAdmin\plugins\images\users\genu.jpg" />
+    <Content Include="Content\CssAdmin\plugins\images\users\govinda.jpg" />
+    <Content Include="Content\CssAdmin\plugins\images\users\hritik.jpg" />
+    <Content Include="Content\CssAdmin\plugins\images\users\pawandeep.jpg" />
+    <Content Include="Content\CssAdmin\plugins\images\users\ritesh.jpg" />
+    <Content Include="Content\CssAdmin\plugins\images\users\sonu.jpg" />
+    <Content Include="Content\CssAdmin\plugins\images\users\varun.jpg" />
+    <Content Include="Content\CssHome\css\bootstrap.css" />
+    <Content Include="Content\CssHome\css\flexslider.css" />
+    <Content Include="Content\CssHome\css\memenu.css" />
+    <Content Include="Content\CssHome\css\memenu_menu.css" />
+    <Content Include="Content\CssHome\css\style.css" />
+    <Content Include="Content\CssHome\Images\arrow.png" />
+    <Content Include="Content\CssHome\Images\cart-1.png" />
+    <Content Include="Content\CssHome\Images\cart-2.png" />
+    <Content Include="Content\CssHome\Images\cart-3.png" />
+    <Content Include="Content\CssHome\Images\cart.png" />
+    <Content Include="Content\CssHome\Images\close.png" />
+    <Content Include="Content\CssHome\Images\close_1.png" />
+    <Content Include="Content\CssHome\Images\co.png" />
+    <Content Include="Content\CssHome\Images\g1.jpg" />
+    <Content Include="Content\CssHome\Images\g2.jpg" />
+    <Content Include="Content\CssHome\Images\g3.jpg" />
+    <Content Include="Content\CssHome\Images\g4.jpg" />
+    <Content Include="Content\CssHome\Images\g5.jpg" />
+    <Content Include="Content\CssHome\Images\g6.jpg" />
+    <Content Include="Content\CssHome\Images\g7.jpg" />
+    <Content Include="Content\CssHome\Images\g8.jpg" />
+    <Content Include="Content\CssHome\Images\img-sprite.png" />
+    <Content Include="Content\CssHome\Images\search.png" />
+    <Content Include="Content\CssHome\Images\star.png" />
+    <Content Include="Content\CssHome\Images\tick.png" />
+    <Content Include="Content\CssHome\Images\tick1.png" />
+    <Content Include="Content\CssHome\js\imagezoom.js" />
+    <Content Include="Content\CssHome\js\jquery-1.11.0.min.js" />
+    <Content Include="Content\CssHome\js\jquery.easydropdown.js" />
+    <Content Include="Content\CssHome\js\jquery.flexslider.js" />
+    <Content Include="Content\CssHome\js\jquery.min.js" />
+    <Content Include="Content\CssHome\js\LienHe.js" />
+    <Content Include="Content\CssHome\js\main.js" />
+    <Content Include="Content\CssHome\js\memenu.js" />
+    <Content Include="Content\CssHome\js\responsiveslides.min.js" />
+    <Content Include="Content\CssHome\js\simpleCart.min.js" />
+    <Content Include="Content\CssLoginAdmin\css\main.css" />
+    <Content Include="Content\CssLoginAdmin\css\util.css" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="Content\CssLoginAdmin\fonts\iconic\css\material-design-iconic-font.css" />
+    <Content Include="Content\CssLoginAdmin\fonts\iconic\css\material-design-iconic-font.min.css" />
+    <Content Include="Content\CssLoginAdmin\fonts\iconic\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="Content\CssLoginAdmin\fonts\Linearicons-Free-v1.0.0\icon-font.min.css" />
+    <Content Include="Content\CssLoginAdmin\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.svg" />
+    <Content Include="Content\CssLoginAdmin\fonts\ubuntu\UFL.txt" />
+    <Content Include="Content\CssLoginAdmin\images\bg-01.jpg" />
+    <Content Include="Content\CssLoginAdmin\images\icons\favicon.ico" />
+    <Content Include="Content\CssLoginAdmin\js\main.js" />
+    <Content Include="Content\CssLoginAdmin\vendor\animate\animate.css" />
+    <Content Include="Content\CssLoginAdmin\vendor\animsition\css\animsition.css" />
+    <Content Include="Content\CssLoginAdmin\vendor\animsition\css\animsition.min.css" />
+    <Content Include="Content\CssLoginAdmin\vendor\animsition\js\animsition.js" />
+    <Content Include="Content\CssLoginAdmin\vendor\animsition\js\animsition.min.js" />
+    <Content Include="Content\CssLoginAdmin\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Content\CssLoginAdmin\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Content\CssLoginAdmin\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Content\CssLoginAdmin\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\CssLoginAdmin\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\CssLoginAdmin\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\CssLoginAdmin\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\CssLoginAdmin\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\CssLoginAdmin\vendor\bootstrap\js\popper.js" />
+    <Content Include="Content\CssLoginAdmin\vendor\bootstrap\js\popper.min.js" />
+    <Content Include="Content\CssLoginAdmin\vendor\bootstrap\js\tooltip.js" />
+    <Content Include="Content\CssLoginAdmin\vendor\countdowntime\countdowntime.js" />
+    <Content Include="Content\CssLoginAdmin\vendor\css-hamburgers\hamburgers.css" />
+    <Content Include="Content\CssLoginAdmin\vendor\css-hamburgers\hamburgers.min.css" />
+    <Content Include="Content\CssLoginAdmin\vendor\daterangepicker\daterangepicker.css" />
+    <Content Include="Content\CssLoginAdmin\vendor\daterangepicker\daterangepicker.js" />
+    <Content Include="Content\CssLoginAdmin\vendor\daterangepicker\moment.js" />
+    <Content Include="Content\CssLoginAdmin\vendor\daterangepicker\moment.min.js" />
+    <Content Include="Content\CssLoginAdmin\vendor\jquery\jquery-3.2.1.min.js" />
+    <Content Include="Content\CssLoginAdmin\vendor\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Include="Content\CssLoginAdmin\vendor\perfect-scrollbar\perfect-scrollbar.min.js" />
+    <Content Include="Content\CssLoginAdmin\vendor\select2\select2.css" />
+    <Content Include="Content\CssLoginAdmin\vendor\select2\select2.js" />
+    <Content Include="Content\CssLoginAdmin\vendor\select2\select2.min.css" />
+    <Content Include="Content\CssLoginAdmin\vendor\select2\select2.min.js" />
+    <Content Include="Content\Css\bootstrap-grid.css" />
+    <Content Include="Content\Css\bootstrap-grid.min.css" />
+    <Content Include="Content\Css\bootstrap-reboot.css" />
+    <Content Include="Content\Css\bootstrap-reboot.min.css" />
+    <Content Include="Content\Css\bootstrap.css" />
+    <Content Include="Content\Css\bootstrap.min.css" />
+    <Content Include="Content\Css\flexslider.css" />
+    <Content Include="Content\Css\font-awesome.css" />
+    <Content Include="Content\Css\images\banner1.jpg" />
+    <Content Include="Content\Css\images\banner2.jpg" />
+    <Content Include="Content\Css\images\banner3.jpg" />
+    <Content Include="Content\Css\js\bootstrap.min.js" />
+    <Content Include="Content\Css\js\easing.js" />
+    <Content Include="Content\Css\js\jquery.flexslider.js" />
+    <Content Include="Content\Css\js\jquery.min.js" />
+    <Content Include="Content\Css\js\lightbox-plus-jquery.min.js" />
+    <Content Include="Content\Css\js\move-top.js" />
+    <Content Include="Content\Css\js\SmoothScroll.min.js" />
+    <Content Include="Content\Css\lightbox.css" />
+    <Content Include="Content\Css\Site.css" />
+    <Content Include="Content\Css\style.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\CssHome\fonts\BreeSerif-Regular.ttf" />
+    <Content Include="Content\CssHome\fonts\Lato-Regular.ttf" />
+    <Content Include="Content\CssHome\fonts\Lora-Regular.ttf" />
+    <Content Include="Content\CssHome\fonts\Muli-Regular.ttf" />
+    <Content Include="Content\CssHome\fonts\Philosopher-Regular.ttf" />
+    <Content Include="Content\Css\bootstrap-grid.css.map" />
+    <Content Include="Content\Css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\Css\bootstrap-reboot.css.map" />
+    <Content Include="Content\Css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\Css\bootstrap.css.map" />
+    <Content Include="Content\Css\bootstrap.min.css.map" />
+    <Content Include="Content\CssHome\Images\Thumbs.db" />
+    <Content Include="Content\CssAdmin\html\bootstrap\dist\css\bootstrap-theme.css.map" />
+    <Content Include="Content\CssAdmin\html\bootstrap\dist\css\bootstrap-theme.min.css.map" />
+    <Content Include="Content\CssAdmin\html\bootstrap\dist\css\bootstrap.css.map" />
+    <Content Include="Content\CssAdmin\html\bootstrap\dist\css\bootstrap.min.css.map" />
+    <Content Include="Content\CssAdmin\html\bootstrap\dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\CssAdmin\html\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\CssAdmin\html\bootstrap\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\CssAdmin\html\bootstrap\dist\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\CssAdmin\html\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\CssAdmin\html\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\CssAdmin\html\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\CssAdmin\html\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\CssAdmin\html\bootstrap\grunt\.jshintrc" />
+    <Content Include="Content\CssAdmin\html\bootstrap\grunt\configBridge.json" />
+    <Content Include="Content\CssAdmin\html\bootstrap\grunt\sauce_browsers.yml" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\alerts.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\badges.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\bootstrap.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\breadcrumbs.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\button-groups.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\buttons.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\carousel.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\close.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\code.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\component-animations.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\dropdowns.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\forms.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\glyphicons.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\grid.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\input-groups.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\jumbotron.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\labels.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\list-group.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\media.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\mixins.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\mixins\alerts.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\mixins\background-variant.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\mixins\border-radius.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\mixins\buttons.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\mixins\center-block.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\mixins\clearfix.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\mixins\forms.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\mixins\gradients.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\mixins\grid-framework.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\mixins\grid.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\mixins\hide-text.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\mixins\image.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\mixins\labels.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\mixins\list-group.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\mixins\nav-divider.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\mixins\nav-vertical-align.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\mixins\opacity.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\mixins\pagination.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\mixins\panels.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\mixins\progress-bar.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\mixins\reset-filter.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\mixins\reset-text.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\mixins\resize.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\mixins\responsive-visibility.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\mixins\size.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\mixins\tab-focus.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\mixins\table-row.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\mixins\text-emphasis.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\mixins\text-overflow.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\mixins\vendor-prefixes.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\modals.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\navbar.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\navs.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\normalize.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\pager.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\pagination.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\panels.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\popovers.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\print.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\progress-bars.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\responsive-embed.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\responsive-utilities.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\scaffolding.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\tables.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\theme.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\thumbnails.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\tooltip.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\type.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\utilities.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\variables.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\less\wells.less" />
+    <Content Include="Content\CssAdmin\html\bootstrap\CHANGELOG.md" />
+    <Content Include="Content\CssAdmin\html\bootstrap\LICENSE" />
+    <Content Include="Content\CssAdmin\html\bootstrap\package.json" />
+    <Content Include="Content\CssAdmin\html\bootstrap\README.md" />
+    <Content Include="Content\CssAdmin\html\css\icons\material-design-iconic-font\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="Content\CssAdmin\html\css\icons\material-design-iconic-font\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="Content\CssAdmin\html\css\icons\material-design-iconic-font\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="Content\CssAdmin\html\css\icons\material-design-iconic-font\fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="Content\CssAdmin\html\css\icons\material-design-iconic-font\fonts\materialdesignicons-webfont.eot" />
+    <Content Include="Content\CssAdmin\html\css\icons\material-design-iconic-font\fonts\materialdesignicons-webfont.ttf" />
+    <Content Include="Content\CssAdmin\html\css\icons\material-design-iconic-font\fonts\materialdesignicons-webfont.woff" />
+    <Content Include="Content\CssAdmin\html\css\icons\material-design-iconic-font\fonts\materialdesignicons-webfont.woff2" />
+    <Content Include="Content\CssAdmin\html\less\colors\default.less" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\.bower.json" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\.gitignore" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\.npmignore" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\bower.json" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\fonts\fontawesome-webfont-old.ttf" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\less\animated.less" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\less\core.less" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\less\extras.less" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\less\fixed-width.less" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\less\font-awesome.less" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\less\icons.less" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\less\larger.less" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\less\list.less" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\less\mixins.less" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\less\path.less" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\less\spinning.less" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\less\stacked.less" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\less\variables.less" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\scss\_animated.scss" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\scss\_core.scss" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\scss\_extras.scss" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\scss\_icons.scss" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\scss\_larger.scss" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\scss\_list.scss" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\scss\_mixins.scss" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\scss\_path.scss" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\scss\_spinning.scss" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\scss\_stacked.scss" />
+    <Content Include="Content\CssAdmin\html\less\icons\font-awesome\scss\_variables.scss" />
+    <Content Include="Content\CssAdmin\html\less\common.less" />
+    <Content Include="Content\CssAdmin\html\less\pages.less" />
+    <Content Include="Content\CssAdmin\html\less\responsive.less" />
+    <Content Include="Content\CssAdmin\html\less\sidebar-nav.less" />
+    <Content Include="Content\CssAdmin\html\less\style.less" />
+    <Content Include="Content\CssAdmin\html\less\variables.less" />
+    <Content Include="Content\CssAdmin\html\less\widgets.less" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-js\dist\chartist.css.map" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-js\dist\chartist.min.js.map" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-js\dist\scss\chartist.scss" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-js\dist\scss\settings\_chartist-settings.scss" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-plugin-tooltip-master\.gitignore" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-plugin-tooltip-master\bower.json" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-plugin-tooltip-master\CHANGELOG.md" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-plugin-tooltip-master\dist\chartist-plugin-tooltip.css.map" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-plugin-tooltip-master\dist\chartist-plugin-tooltip.min.js.map" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-plugin-tooltip-master\dist\LICENSE" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-plugin-tooltip-master\LICENSE" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-plugin-tooltip-master\package.json" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-plugin-tooltip-master\README.md" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-plugin-tooltip-master\src\css\chartist-plugin-tooltip.css.map" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-plugin-tooltip-master\src\scss\chartist-plugin-tooltip.scss" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-plugin-tooltip-master\tasks\aliases.yml" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\chartist-plugin-tooltip-master\test\.jshintrc" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\gmaps\gmaps.min.js.map" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\.bower.json" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\bower.json" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\dist\jquery.min.map" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\jquery\src\sizzle\dist\sizzle.min.map" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\.bower.json" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\.gitignore" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\.travis.yml" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\bower.json" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\bower.travis.json" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\less\morris.core.less" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\lib\morris.area.coffee" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\lib\morris.bar.coffee" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\lib\morris.coffee" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\lib\morris.donut.coffee" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\lib\morris.grid.coffee" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\lib\morris.hover.coffee" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\lib\morris.line.coffee" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\package.json" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\README.md" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\spec\lib\area\area_spec.coffee" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\spec\lib\bar\bar_spec.coffee" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\spec\lib\bar\colours.coffee" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\spec\lib\commas_spec.coffee" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\spec\lib\donut\donut_spec.coffee" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\spec\lib\grid\auto_grid_lines_spec.coffee" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\spec\lib\grid\set_data_spec.coffee" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\spec\lib\grid\y_label_format_spec.coffee" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\spec\lib\hover_spec.coffee" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\spec\lib\label_series_spec.coffee" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\spec\lib\line\line_spec.coffee" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\spec\lib\pad_spec.coffee" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\spec\lib\parse_time_spec.coffee" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\spec\support\placeholder.coffee" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\morrisjs\spec\viz\run.sh" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\sidebar-nav\.bower.json" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\sidebar-nav\bower.json" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\sidebar-nav\LICENSE" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\sidebar-nav\package.json" />
+    <Content Include="Content\CssAdmin\plugins\bower_components\sidebar-nav\README.md" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\less\core.less" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\less\list.less" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\less\path.less" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="Content\CssLoginAdmin\fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="Content\CssLoginAdmin\fonts\iconic\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="Content\CssLoginAdmin\fonts\iconic\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="Content\CssLoginAdmin\fonts\iconic\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="Content\CssLoginAdmin\fonts\iconic\fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="Content\CssLoginAdmin\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.eot" />
+    <Content Include="Content\CssLoginAdmin\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.ttf" />
+    <Content Include="Content\CssLoginAdmin\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.woff" />
+    <Content Include="Content\CssLoginAdmin\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.woff2" />
+    <Content Include="Content\CssLoginAdmin\fonts\poppins\Poppins-Black.ttf" />
+    <Content Include="Content\CssLoginAdmin\fonts\poppins\Poppins-BlackItalic.ttf" />
+    <Content Include="Content\CssLoginAdmin\fonts\poppins\Poppins-Bold.ttf" />
+    <Content Include="Content\CssLoginAdmin\fonts\poppins\Poppins-BoldItalic.ttf" />
+    <Content Include="Content\CssLoginAdmin\fonts\poppins\Poppins-ExtraBold.ttf" />
+    <Content Include="Content\CssLoginAdmin\fonts\poppins\Poppins-ExtraBoldItalic.ttf" />
+    <Content Include="Content\CssLoginAdmin\fonts\poppins\Poppins-ExtraLight.ttf" />
+    <Content Include="Content\CssLoginAdmin\fonts\poppins\Poppins-ExtraLightItalic.ttf" />
+    <Content Include="Content\CssLoginAdmin\fonts\poppins\Poppins-Italic.ttf" />
+    <Content Include="Content\CssLoginAdmin\fonts\poppins\Poppins-Light.ttf" />
+    <Content Include="Content\CssLoginAdmin\fonts\poppins\Poppins-LightItalic.ttf" />
+    <Content Include="Content\CssLoginAdmin\fonts\poppins\Poppins-Medium.ttf" />
+    <Content Include="Content\CssLoginAdmin\fonts\poppins\Poppins-MediumItalic.ttf" />
+    <Content Include="Content\CssLoginAdmin\fonts\poppins\Poppins-Regular.ttf" />
+    <Content Include="Content\CssLoginAdmin\fonts\poppins\Poppins-SemiBold.ttf" />
+    <Content Include="Content\CssLoginAdmin\fonts\poppins\Poppins-SemiBoldItalic.ttf" />
+    <Content Include="Content\CssLoginAdmin\fonts\poppins\Poppins-Thin.ttf" />
+    <Content Include="Content\CssLoginAdmin\fonts\poppins\Poppins-ThinItalic.ttf" />
+    <Content Include="Content\CssLoginAdmin\fonts\ubuntu\Ubuntu-Bold.ttf" />
+    <Content Include="Content\CssLoginAdmin\fonts\ubuntu\Ubuntu-BoldItalic.ttf" />
+    <Content Include="Content\CssLoginAdmin\fonts\ubuntu\Ubuntu-Italic.ttf" />
+    <Content Include="Content\CssLoginAdmin\fonts\ubuntu\Ubuntu-Light.ttf" />
+    <Content Include="Content\CssLoginAdmin\fonts\ubuntu\Ubuntu-LightItalic.ttf" />
+    <Content Include="Content\CssLoginAdmin\fonts\ubuntu\Ubuntu-Medium.ttf" />
+    <Content Include="Content\CssLoginAdmin\fonts\ubuntu\Ubuntu-MediumItalic.ttf" />
+    <Content Include="Content\CssLoginAdmin\fonts\ubuntu\Ubuntu-Regular.ttf" />
+    <Content Include="Content\CssLoginAdmin\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Content\CssLoginAdmin\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\CssLoginAdmin\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\CssLoginAdmin\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\CssLoginAdmin\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Content\CssLoginAdmin\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.bxslider.js" />
+    <Content Include="Scripts\jquery.bxslider.min.js" />
+    <Content Include="Scripts\jquery.signalR-2.3.0.js" />
+    <Content Include="Scripts\jquery.signalR-2.3.0.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Product\Detail_Product.cshtml" />
+    <Content Include="Views\Product\Product.cshtml" />
+    <Content Include="Views\Cart\CartPartial.cshtml" />
+    <Content Include="Views\Cart\Addcart.cshtml" />
+    <Content Include="Views\Cart\ThongBao.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Index_login.cshtml" />
+    <Content Include="Views\Product_Manage\Index.cshtml" />
+    <Content Include="Views\Discount_Manage\Index_Discount.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ShopMVC.Data\ShopMVC.Data.csproj">
+      <Project>{4da2d483-f069-41d4-a742-2ad26718ba69}</Project>
+      <Name>ShopMVC.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShopMVC.Framework\ShopMVC.Framework.csproj">
+      <Project>{e68948d5-e1af-4677-9fc9-081cbc6b593e}</Project>
+      <Name>ShopMVC.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShopMVC.Service\ShopMVC.Service.csproj">
+      <Project>{1065ff1a-7d38-4829-87f9-5615f188377f}</Project>
+      <Name>ShopMVC.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>44145</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:44145/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

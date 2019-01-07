@@ -1,0 +1,10 @@
+F:\ShopMVC\ShopMVC.Data\bin\Debug\ShopMVC.Data.dll.config
+F:\ShopMVC\ShopMVC.Data\bin\Debug\ShopMVC.Data.dll
+F:\ShopMVC\ShopMVC.Data\bin\Debug\ShopMVC.Data.pdb
+F:\ShopMVC\ShopMVC.Data\bin\Debug\EntityFramework.dll
+F:\ShopMVC\ShopMVC.Data\bin\Debug\EntityFramework.SqlServer.dll
+F:\ShopMVC\ShopMVC.Data\bin\Debug\EntityFramework.xml
+F:\ShopMVC\ShopMVC.Data\bin\Debug\EntityFramework.SqlServer.xml
+F:\ShopMVC\ShopMVC.Data\obj\Debug\ShopMVC.Data.csprojResolveAssemblyReference.cache
+F:\ShopMVC\ShopMVC.Data\obj\Debug\ShopMVC.Data.dll
+F:\ShopMVC\ShopMVC.Data\obj\Debug\ShopMVC.Data.pdb
